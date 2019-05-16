@@ -1,9 +1,9 @@
-export class documents {
+export class Document {
     public id: string;
     public name: string;
     public description: string;
     public url: string;
-    public children: documents[];
+    public children: Document[];
 
     constructor(id: string, name: string, description: string, url: string, children: null) {
         this.id = id;

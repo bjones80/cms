@@ -1,15 +1,13 @@
 <div class="container">
-<div class="row">
-  <div class="col-md-6 pull-left">
-    <cms-contact-list (contactWasSelected)="selectedContact = $event"></cms-contact-list>
-  </div>
+  <div class="row">
+    <div class="col-md-6 pull-left">
+      <cms-contact-list (contactWasSelected)="selectedContact = $event"></cms-contact-list>
+    </div>
     <div class="col-md-6 pull-right">
-    <cms-contacts-detail
-    *ngIf="selectedContact; else infoText"
-    [contact]="selectedContact"></cms-contacts-detail>
-    <ng-template #infoText>
-      <p>Please select a Contact!</p>
-    </ng-template>
+      <cms-contacts-detail *ngIf="selectedContact; else infoText" [contact]="selectedContact"></cms-contacts-detail>
+      <ng-template #infoText>
+        <p>Please select a Contact!</p>
+      </ng-template>
+    </div>
   </div>
-</div>
 </div>
