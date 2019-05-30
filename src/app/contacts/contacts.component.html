@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 pull-left">
-      <cms-contact-list (contactWasSelected)="selectedContact = $event"></cms-contact-list>
+      <cms-contact-list></cms-contact-list>
     </div>
     <div class="col-md-6 pull-right">
       <cms-contacts-detail *ngIf="selectedContact; else infoText" [contact]="selectedContact"></cms-contacts-detail>
