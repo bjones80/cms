@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DocumentService } from '../../document.service';
 import { Document } from '../../documents.model';
 
 @Component({
@@ -10,14 +9,9 @@ import { Document } from '../../documents.model';
 export class DocumentsItemComponent implements OnInit {
 
   @Input() document: Document;
-
-  constructor(private documentService: DocumentService) { }
+  @Input() index: number;
 
   ngOnInit() {
-  }
-
-  onSelected() {
-    this.documentService.documentSelected.emit(this.document);
   }
 
 }

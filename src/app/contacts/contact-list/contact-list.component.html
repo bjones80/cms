@@ -2,13 +2,14 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h1>Contact
-        <button class="btn btn-success pull-right ">New Contact</button>
+        <button class="btn btn-success pull-right" (click)="onNewContact()">New Contact</button>
       </h1>
     </div>
     <div class="panel-body">
       <cms-contact-item
-      *ngFor="let contactEl of contacts"
-      [contact]="contactEl">
+      *ngFor="let contactEl of contacts; index as i"
+      [contact]="contactEl"
+      [index]="i">
       </cms-contact-item>
     </div>
   </div>

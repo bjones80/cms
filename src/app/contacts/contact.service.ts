@@ -20,13 +20,11 @@ export class ContactService {
   }
 
 
-  getContact(id: string): Contact {
-    for (let i = 0; i < this.contacts.length; i++){
-      if (this.contacts[i].id === id){
-        return this.contacts[i];
-      }
-    }
-    return null;
+  getContact(index: number): Contact {
+    return this.contacts[index];
+  }
+  getContact2(id: string): Contact{
+    return this.contacts[id];
   }
 }
 

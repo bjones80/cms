@@ -4,7 +4,7 @@
       <h4 class="title margin-left-right">{{document?.name}}</h4>
       <div class="row pull-right margin-left-right btn-toolbar">
         <a class="btn btn-primary">View</a>
-        <a class="btn btn-info">Edit</a>
+        <a class="btn btn-info" style="cursor: pointer;" (click)="onEditDocument()">Edit</a>
         <a class="btn btn-danger">Delete</a>
       </div>
     </div>
@@ -13,8 +13,8 @@
     <div class="pad-left-right">
       <div class="row">
         <label>Description:</label>
-        <span class="label-value">
-          {{ document?.description }} </span>
+        <div class="label-value">
+          {{ document?.description }} </div>
       </div>
       <br>
       <div class="row">

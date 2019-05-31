@@ -19,4 +19,8 @@ export class DocumentService {
    getDocuments() {
      return this.documents.slice();
    }
+   
+   getDocument(index: number){
+     return this.documents[index];
+   }
 }

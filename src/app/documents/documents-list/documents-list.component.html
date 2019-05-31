@@ -2,13 +2,14 @@
   <div class="panel-heading">
     <div class="row pad-left-right">
       <span class="pull-left title">Documents</span>
-      <a class="btn btn-success pull-right">Add Document</a>
+      <button class="btn btn-success pull-right" (click)="onNewDocument()">Add Document</button>
     </div>
   </div>
   <div class="panel-body">
     <div class="center-panel">
-      <cms-documents-item *ngFor="let document of document" 
-      [document]="document">
+      <cms-documents-item *ngFor="let document of document; index as i" 
+      [document]="document"
+      [index]="i">
       </cms-documents-item>
     </div>
   </div>

@@ -4,11 +4,9 @@
       <cms-documents-list></cms-documents-list>
     </div>
     <div class="col-md-6 pull-right">
-      <cms-documents-detail *ngIf="selectedDocument; else infoText" [document]="selectedDocument">
-      </cms-documents-detail>
-      <ng-template #infoText>
-        <p>Please select a Document!</p>
-      </ng-template>
+      <router-outlet></router-outlet>
+      <!-- <cms-documents-detail *ngIf="selectedDocument; else infoText" [document]="selectedDocument">
+      </cms-documents-detail> -->
     </div>
   </div>
 </div>
