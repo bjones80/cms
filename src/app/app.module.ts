@@ -21,6 +21,7 @@ import { DocumentStartComponent } from './documents/document-start/document-star
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ContactStartComponent } from './contacts/contact-start/contact-start.component';
+import { WinRefService } from './win-ref.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { ContactStartComponent } from './contacts/contact-start/contact-start.co
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [WinRefService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

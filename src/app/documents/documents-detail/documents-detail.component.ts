@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Document } from '../documents.model'
 import { DocumentService } from '../document.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+import { WinRefService } from 'src/app/win-ref.service';
 @Component({
   selector: 'cms-documents-detail',
   templateUrl: './documents-detail.component.html',
@@ -11,10 +12,14 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 export class DocumentsDetailComponent implements OnInit {
   document: Document;
   id: number;
+  nativeWindow: any;
 
   constructor(private documentService: DocumentService,
-              private route: ActivatedRoute,
-              private router: Router) { }
+    private windowRefService: WinRefService,
+    private route: ActivatedRoute,
+    private router: Router) {
+    this.nativeWindow = windowRefService.getNativeWindow();
+  }
 
   ngOnInit() {
     this.route.params
@@ -25,9 +30,15 @@ export class DocumentsDetailComponent implements OnInit {
         }
       );
   }
-  
-  onEditDocument(){
-    this.router.navigate(['edit'], {relativeTo: this.route});
+
+  onEditDocument() {
+    this.router.navigate(['edit'], { relativeTo: this.route });
+  }
+
+  onView() {
+    if (this.document.url){
+      this.nativeWindow.open(this.document.url);
+    }
   }
 
 }

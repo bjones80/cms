@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Document } from '../documents.model'
 import { DocumentService } from '../document.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'cms-documents-list',
   templateUrl: './documents-list.component.html',
