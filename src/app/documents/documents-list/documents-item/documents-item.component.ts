@@ -8,6 +8,8 @@ import { Document } from '../../documents.model';
 })
 export class DocumentsItemComponent implements OnInit {
 
+  
+
   @Input() document: Document;
   @Input() index: number;
 

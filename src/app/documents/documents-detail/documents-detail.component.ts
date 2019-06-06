@@ -31,14 +31,15 @@ export class DocumentsDetailComponent implements OnInit {
       );
   }
 
-  onEditDocument() {
-    this.router.navigate(['edit'], { relativeTo: this.route });
-  }
-
   onView() {
     if (this.document.url){
       this.nativeWindow.open(this.document.url);
     }
+  }
+
+  onDelete(document: Document){
+    this.documentService.deleteDocument(this.document);
+    this.router.navigate(['/documents']);
   }
 
 }
