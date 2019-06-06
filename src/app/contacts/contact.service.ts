@@ -8,6 +8,7 @@ import { MOCKCONTACTS } from './MOCKCONTACTS';
 export class ContactService {
 
   contactSelected = new EventEmitter<Contact>();
+  contactChangedEvent = new EventEmitter<Contact[]>();
 
   contacts: Contact[] = [];
 
@@ -26,5 +27,17 @@ export class ContactService {
   getContact2(id: string): Contact{
     return this.contacts[id];
   }
-}
 
+  deleteContact(contact: Contact){
+    if (!contact) {
+      return;
+    }
+    const pos = this.contacts.findIndex(c => c.id === contact.id);
+
+    if (pos < 0) {
+      return;
+    }
+    this.contacts.splice(pos, 1);
+    this.contactChangedEvent.emit(this.contacts.slice());
+}
+}

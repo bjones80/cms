@@ -8,8 +8,8 @@
             *ngIf="contact?.imagePath">
         </div>
         <div class="pull-right btn-toolbar">
-          <button class="btn btn-primary" (click)="onEditContact()">Edit</button>
-          <button class="btn btn-danger">Delete</button>
+          <button class="btn btn-primary" [routerLink]="['/contacts', contact !== null ? contact?.id : 0, 'edit']">Edit</button>
+          <button class="btn btn-danger" (click)="onDelete()">Delete</button>
         </div>
       </div>
       <div class="panel-body">
