@@ -18,7 +18,13 @@ export class ContactEditComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          this.editMode = params['id'] != null;
+
+          if (!this.id) {
+            this.editMode = false;
+            return;
+          }
+
+          
         }
       )
   }

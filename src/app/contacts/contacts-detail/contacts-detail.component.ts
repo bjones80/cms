@@ -10,7 +10,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class ContactsDetailComponent implements OnInit {
   contact: Contact;
-  id: number;
+  id: string;
 
   constructor(private contactService: ContactService,
     private route: ActivatedRoute,
@@ -20,7 +20,7 @@ export class ContactsDetailComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = +params['id'];
+          this.id = params['id'];
           this.contact = this.contactService.getContact(this.id);
         }
       );

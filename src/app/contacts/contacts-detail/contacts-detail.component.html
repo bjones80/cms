@@ -4,8 +4,8 @@
       <div class="panel-heading clearfix">
         <h2>{{ contact?.name }} </h2>
         <div class="pull-left">
-          <img [src]="contact?.imagePath" alt="{{ contact?.name }}" class="img-responsive" style="max-height: 50px;"
-            *ngIf="contact?.imagePath">
+          <img [src]="contact?.imageUrl" alt="{{ contact?.name }}" class="img-responsive" style="max-height: 50px;"
+            *ngIf="contact?.imageUrl">
         </div>
         <div class="pull-right btn-toolbar">
           <button class="btn btn-primary" [routerLink]="['/contacts', contact !== null ? contact?.id : 0, 'edit']">Edit</button>
