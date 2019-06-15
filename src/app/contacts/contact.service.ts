@@ -8,11 +8,17 @@ import { Subject } from 'rxjs';
 })
 export class ContactService {
   contactChangedEvent = new Subject<Contact[]>();
-
+  contactSelectedEvent = new Subject<Contact[]>();
   contacts: Contact[] = [];
+  maxId: number;
+  currentId: number;
+  maxContactId: number;
+  contactsListClone: Contact[] = [];
+  id: string;
 
   constructor() {
     this.contacts = MOCKCONTACTS;
+    this.maxId = this.getMaxId();
   }
 
   getContacts(): Contact[] {
@@ -21,21 +27,49 @@ export class ContactService {
 
 
   getContact(id: string): Contact {
-    // this.contacts.forEach(
-    //   (contact) => {
-    //     if (contact.id === id) {
-    //       return contact;
-    //     }
-    //   });
-
-    for (var i = 0; i < this.contacts.length; i++) {
+    for(let i=0; i< this.contacts.length; i++){
       if (this.contacts[i].id === id) {
-        return this.contacts[i];
+         return this.contacts[i];
       }
     }
-
-    return null;
   }
+  addContact(newContact: Contact){
+    if (newContact === null) {
+      return;
+    }
+
+    this.maxContactId++;
+    newContact.id = window.location.hash = this.maxContactId.toString();
+    this.contacts.push(newContact);
+    this.contactChangedEvent.next(this.contacts.slice());
+  }
+
+  getMaxId(): number {
+    this.contacts.forEach(contact => {
+      this.currentId = +contact.id;
+      if (this.currentId > this.maxId)
+       this.maxId = this.currentId;
+    });
+    return this.maxId;
+  }
+
+  updateContact(originalContact: Contact,  newContact: Contact){
+    if (!originalContact || !newContact){
+      return;
+    }
+
+    const pos = this.contacts.findIndex(d => d.id === originalContact.id)
+    if (pos < 0 ){
+      return;
+    }
+    newContact.id = originalContact.id;
+
+    this.contacts[pos] = newContact;
+    this.contactsListClone = this.contacts.slice();
+
+    this.contactChangedEvent.next(this.contactsListClone);
+  }
+
 
   deleteContact(contact: Contact) {
     if (!contact) {

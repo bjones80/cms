@@ -8,7 +8,7 @@
             *ngIf="contact?.imageUrl">
         </div>
         <div class="pull-right btn-toolbar">
-          <button class="btn btn-primary" [routerLink]="['/contacts', contact !== null ? contact?.id : 0, 'edit']">Edit</button>
+          <button class="btn btn-primary" routerLink='edit'>Edit</button>
           <button class="btn btn-danger" (click)="onDelete()">Delete</button>
         </div>
       </div>

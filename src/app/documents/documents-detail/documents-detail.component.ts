@@ -11,7 +11,7 @@ import { WinRefService } from 'src/app/win-ref.service';
 })
 export class DocumentsDetailComponent implements OnInit {
   document: Document;
-  id: number;
+  id: string;
   nativeWindow: any;
 
   constructor(private documentService: DocumentService,
@@ -25,7 +25,7 @@ export class DocumentsDetailComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = +params['id'];
+          this.id = params['id'];
           this.document = this.documentService.getDocument(this.id);
         }
       );
@@ -37,7 +37,7 @@ export class DocumentsDetailComponent implements OnInit {
     }
   }
 
-  onDelete(document: Document){
+  onDelete(){
     this.documentService.deleteDocument(this.document);
     this.router.navigate(['/documents']);
   }

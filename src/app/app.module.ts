@@ -22,6 +22,8 @@ import { DocumentEditComponent } from './documents/document-edit/document-edit.c
 import { AppRoutingModule } from './app-routing.module';
 import { ContactStartComponent } from './contacts/contact-start/contact-start.component';
 import { WinRefService } from './win-ref.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {DndModule} from 'ng2-dnd';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,10 @@ import { WinRefService } from './win-ref.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    DndModule.forRoot()
   ],
   providers: [WinRefService],
   bootstrap: [AppComponent]

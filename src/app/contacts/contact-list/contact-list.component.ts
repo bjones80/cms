@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 export class ContactListComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   contacts: Contact[] = [];
+  contactId: string = '';
 
 
   constructor(private contactService: ContactService,
@@ -26,6 +27,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
         this.contacts = contactList;
       }
     );
+    this.contactService.getContacts();
   }
   onNewContact() {
     this.router.navigate(['new'], { relativeTo: this.route });
