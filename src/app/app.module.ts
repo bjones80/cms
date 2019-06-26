@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -24,6 +25,7 @@ import { ContactStartComponent } from './contacts/contact-start/contact-start.co
 import { WinRefService } from './win-ref.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {DndModule} from 'ng2-dnd';
+import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -45,14 +47,16 @@ import {DndModule} from 'ng2-dnd';
     ContactEditComponent,
     DocumentStartComponent,
     DocumentEditComponent,
-    ContactStartComponent
+    ContactStartComponent,
+    ContactsFilterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    DndModule.forRoot()
+    DndModule.forRoot(),
+    HttpClientModule
   ],
   providers: [WinRefService],
   bootstrap: [AppComponent]
