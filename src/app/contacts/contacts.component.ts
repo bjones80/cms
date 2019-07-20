@@ -12,7 +12,7 @@ import { Contact } from './contact.model';
 })
 
 export class ContactsComponent implements OnInit {
-  selectedContact: Contact;
+  //selectedContact: Contact;
   constructor() { }
 
   ngOnInit() {

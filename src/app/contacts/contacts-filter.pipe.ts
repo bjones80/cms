@@ -14,6 +14,7 @@ export class ContactsFilterPipe implements PipeTransform {
       (contact: any) => contact.name.toLowerCase().includes(term.toLowerCase())
     );
     }
+    
 
     return filteredArray.length > 0 ? filteredArray : contacts;
   }
